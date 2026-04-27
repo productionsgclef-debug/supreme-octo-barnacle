@@ -2,11 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
     <title>Supreme Expense Tracker</title>
-    <style>body{font-family:sans-serif; text-align:center; padding:50px; background:#121212; color:white;}</style>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background: #121212; 
+            color: #ffffff; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .app-card { 
+            background: #1e1e1e; 
+            padding: 40px; 
+            border-radius: 24px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            text-align: center; 
+            border: 1px solid #333;
+            max-width: 350px;
+        }
+        .icon { font-size: 64px; margin-bottom: 20px; }
+        h1 { margin: 10px 0; font-size: 24px; color: #007bff; }
+        p { color: #888; font-size: 14px; line-height: 1.5; }
+        .status { 
+            background: #222; 
+            color: #00ff88; 
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            display: inline-block; 
+            font-size: 12px; 
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>💰 Supreme Expense Tracker</h1>
-    <p>Your financial dashboard is active and ready for the app store.</p>
+    <div class="app-card">
+        <div class="icon">💰</div>
+        <h1>Supreme Octo-Barnacle</h1>
+        <p>Your financial dashboard and expense tracker is active and ready for the app store.</p>
+        <div class="status">● System Operational</div>
+    </div>
+
+    <!-- SERVICE WORKER SCRIPT INCLUDED BELOW -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Octo-Barnacle SW Registered!'))
+                    .catch(err => console.log('Registration Failed', err));
+            });
+        }
+    </script>
 </body>
 </html>
